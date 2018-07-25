@@ -19,7 +19,7 @@ public interface CheckWriterConstant {
 	String DOLLARS_AND = " dollars and ";
 	String CENT = "/100";
 	String SLASH_DELIMETER = "/";
-	String SPACE_ADJUST = "/";
+	String SPACE_ADJUST = "\\s{2,}";
 	char DOT = '.';
 	char FORWARD_SLASH = '/';
 	String ZERO = "zero";

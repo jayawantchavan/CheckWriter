@@ -15,36 +15,46 @@ import com.tmobile.CheckWriter;
 public class CheckWriterTest {
 	CheckWriter checkWriter = new CheckWriter();
 
+	/**
+	 * This method checks number to word conversion for valid positive Integer value
+	 */
 	@Test
 	public void ChecksNumberToWordConversionForValidIntegerInput() {
-		StringBuilder expectedResult = new StringBuilder("One hundred twenty three dollars only");
-		StringBuilder actualResult = checkWriter.convertInputNumberIntoWord("1536353623");
+		String expectedResult = "One million five hundred forty two thousand one hundred forty three dollars only";
+		String actualResult = checkWriter.convertInputNumberIntoWord("1542143");
 		boolean result = expectedResult.toString().equals(actualResult.toString());
 		assertTrue(result);
 	}
 
+	/**
+	 * This method checks number to word conversion for negative integer value
+	 */
 	@Test
 	public void ChecksNumberToWordConversionForInValidIntegerInput() {
-		StringBuilder expectedResult = new StringBuilder("One hundred twenty three dollars only");
-		StringBuilder actualResult = checkWriter.convertInputNumberIntoWord("-76538123");
+		String expectedResult = "Three hundred forty eight thousand two hundred fifty six dollars only";
+		String actualResult = checkWriter.convertInputNumberIntoWord("-348256");
 		boolean result = expectedResult.toString().equals(actualResult.toString());
 		assertFalse(result);
 	}
 
+	/**
+	 * This method checks number to word conversion for valid positive float value
+	 */
 	@Test
 	public void ChecksNumberToWordConversionForValidFloatInput() {
-		StringBuilder expectedResult = new StringBuilder(
-				"Forty five thousand six hundred twenty three dollars and 21/100");
-		StringBuilder actualResult = checkWriter.convertInputNumberIntoWord("45623.21");
+		String expectedResult = new String("Forty five thousand six hundred twenty three dollars and 21/100");
+		String actualResult = checkWriter.convertInputNumberIntoWord("45623.21");
 		boolean result = expectedResult.toString().equals(actualResult.toString());
 		assertTrue(result);
 	}
 
+	/**
+	 * This method checks number to word conversion for negative float value
+	 */
 	@Test
 	public void ChecksNumberToWordConversionForInValidFloatInput() {
-		StringBuilder expectedResult = new StringBuilder(
-				"forty five thousand six hundred twenty three dollars and 21/100");
-		StringBuilder actualResult = checkWriter.convertInputNumberIntoWord("-45623.21");
+		String expectedResult = new String("forty five thousand six hundred twenty three dollars and 21/100");
+		String actualResult = checkWriter.convertInputNumberIntoWord("-45623.21");
 		boolean result = expectedResult.toString().equals(actualResult.toString());
 		assertFalse(result);
 	}

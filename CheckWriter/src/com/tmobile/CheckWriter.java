@@ -14,7 +14,7 @@ public class CheckWriter {
 	private static Scanner sc = new Scanner(System.in);
 
 	/**
-	 * This method convert the number which is less than one thousand into word
+	 * This method convert the three number into word
 	 * 
 	 * @param number - integer number whose value is less than one thousand
 	 * @return String
@@ -41,9 +41,9 @@ public class CheckWriter {
 	}
 
 	/**
-	 * This method convert the number into word
+	 * This method convert the number pre-decimal part of decimal number into word
 	 * 
-	 * @param intpart  - This is the number which is to be converted into word
+	 * @param intpart - This is the number which is to be converted into word
 	 * @return String
 	 */
 	private String convertPreDecimalNumberIntoWord(long intpart) {
@@ -107,12 +107,12 @@ public class CheckWriter {
 	}
 
 	/**
-	 * This is the processing method for number conversion
+	 * This is the processing method for number conversion into word
 	 * 
 	 * @param number - Integer/float number in string form
 	 * @return String
 	 */
-	public StringBuilder convertInputNumberIntoWord(String number) {
+	public String convertInputNumberIntoWord(String number) {
 		// Replace string into two integer part
 		int index = number.indexOf(CheckWriterConstant.DOT);
 		number = number.replace(CheckWriterConstant.DOT, CheckWriterConstant.FORWARD_SLASH);
@@ -136,13 +136,13 @@ public class CheckWriter {
 		if (index != -1) {
 			int decpartVal = Integer.parseInt(num[1]);
 			if (decpartVal == 0) {
-				return resultedString.append(CheckWriterConstant.DOLLARS);
+				return resultedString.append(CheckWriterConstant.DOLLARS).toString();
 			} else {
 				decpart.append(num[1]).append(CheckWriterConstant.CENT);
-				return resultedString.append(CheckWriterConstant.DOLLARS_AND).append(decpart);
+				return resultedString.append(CheckWriterConstant.DOLLARS_AND).append(decpart).toString();
 			}
 		} else {
-			return resultedString.append(CheckWriterConstant.DOLLARS);
+			return resultedString.append(CheckWriterConstant.DOLLARS).toString();
 		}
 	}
 
@@ -159,16 +159,17 @@ public class CheckWriter {
 		// Check for valid input
 		try {
 			Float.parseFloat(number);
+
+			// call conversion processing method
+			CheckWriter checkWriter = new CheckWriter();
+			String result = checkWriter.convertInputNumberIntoWord(number);
+
+			// Display Given number in the form of word
+			System.out.println(result);
 		} catch (Exception ex) {
-			System.out.println("Entered input is invalid, please enter the valid input");
+			System.out.println("Entered input is invalid, please enter the valid postive integer or float number");
 		}
 
-		// call conversion processing method
-		CheckWriter checkWriter = new CheckWriter();
-		StringBuilder result = checkWriter.convertInputNumberIntoWord(number);
-
-		// Display Given number in the form of word
-		System.out.println(result);
 	}
 
 }
