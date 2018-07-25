@@ -53,7 +53,7 @@ public class CheckWriterTest {
 	 */
 	@Test
 	public void ChecksNumberToWordConversionForInValidFloatInput() {
-		String expectedResult = new String("forty five thousand six hundred twenty three dollars and 21/100");
+		String expectedResult = new String("Forty five thousand six hundred twenty three dollars and 21/100");
 		String actualResult = checkWriter.convertInputNumberIntoWord("-45623.21");
 		boolean result = expectedResult.toString().equals(actualResult.toString());
 		assertFalse(result);

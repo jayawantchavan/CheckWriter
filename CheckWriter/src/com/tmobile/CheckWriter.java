@@ -16,7 +16,8 @@ public class CheckWriter {
 	/**
 	 * This method convert the three number into word
 	 * 
-	 * @param number - integer number whose value is less than one thousand
+	 * @param number
+	 *            - integer number whose value is less than one thousand
 	 * @return String
 	 */
 	private String convertThreeDigitNumberIntoWord(int number) {
@@ -43,7 +44,8 @@ public class CheckWriter {
 	/**
 	 * This method convert the number pre-decimal part of decimal number into word
 	 * 
-	 * @param intpart - This is the number which is to be converted into word
+	 * @param intpart
+	 *            - This is the number which is to be converted into word
 	 * @return String
 	 */
 	private String convertPreDecimalNumberIntoWord(long intpart) {
@@ -109,7 +111,8 @@ public class CheckWriter {
 	/**
 	 * This is the processing method for number conversion into word
 	 * 
-	 * @param number - Integer/float number in string form
+	 * @param number
+	 *            - Integer/float number in string form
 	 * @return String
 	 */
 	public String convertInputNumberIntoWord(String number) {
@@ -158,7 +161,8 @@ public class CheckWriter {
 
 		// Check for valid input
 		try {
-			Float.parseFloat(number);
+			if (Float.parseFloat(number) < 0)
+				throw new NumberFormatException();
 
 			// call conversion processing method
 			CheckWriter checkWriter = new CheckWriter();
