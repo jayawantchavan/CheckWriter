@@ -1,7 +1,4 @@
-package com.tmobile;
-
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 /**
  * This application gives an English equivalent output of given Currency value
@@ -11,10 +8,9 @@ import java.util.Scanner;
  *
  */
 public class CheckWriter {
-	private static Scanner sc = new Scanner(System.in);
 
 	/**
-	 * This method convert the three number into word
+	 * This method convert the three number in to word
 	 * 
 	 * @param number
 	 *            - integer number whose value is less than one thousand
@@ -155,12 +151,14 @@ public class CheckWriter {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Take the input from user
-		System.out.println("Enter any positive integer or float number  ");
-		String number = sc.nextLine();
-
+		String number = args[0];
+		System.out.println("******************************");
+		System.out.println("CheckWriter Demo");
+		System.out.println("******************************\n");
 		// Check for valid input
 		try {
+			System.out.println("Command Line Argument Received\n");
+			System.out.println("Value in number is : " + number);
 			if (Float.parseFloat(number) < 0)
 				throw new NumberFormatException();
 
@@ -169,9 +167,9 @@ public class CheckWriter {
 			String result = checkWriter.convertInputNumberIntoWord(number);
 
 			// Display Given number in the form of word
-			System.out.println(result);
+			System.out.println("Value in word is : " + result);
 		} catch (Exception ex) {
-			System.out.println("Entered input is invalid, please enter the valid postive integer or float number");
+			System.out.println("Entered input is invalid, please enter valid positive integer or float number");
 		}
 
 	}

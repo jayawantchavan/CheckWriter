@@ -1,5 +1,3 @@
-package com.tmobile;
-
 /**
  * This is a constant class which stores the constant value required to display
  * English equivalent output of given Currency value written on a check.
